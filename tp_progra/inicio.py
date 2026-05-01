@@ -9,28 +9,35 @@ def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, 
     
     #regla 1
     if not estado_firewall == "Inactivo": 
-        print("Computadora segura")
+        estado_de_la_computadora = "Computadora segura"
     #regla 2
     elif cpu > 85 and ram > 80 and estado_firewall == "Inactivo":
-        print("Estado critico")
+        estado_de_la_computadora = "Estado critico"
     #regla 3
     elif us_conectados > 1000 or procesos_activos > 1000:
-        print("Sistema saturado")
+        estado_de_la_computadora = "Sistema saturado"
     #regla 4
     elif servidor == "Web" and us_conectados > 100 and cpu > 75:
-        print("Alta demanda")
+        estado_de_la_computadora = "Alta demanda"
     #regla 5
     elif espacio_libre_gb < 10 or procesos_activos:
-        print("el disco esta casi lleno")
+        estado_de_la_computadora = "el disco esta casi lleno"
     # 6
     elif presion_sistema > 1000 and recursos_disponibles < 20 and ram < 10:
-        print("sistema muy bajo")
+        estado_de_la_computadora = "sistema muy bajo"
     # 7
-    elif estado_firewall == "Inactivo" and espacio_libre_gb < 30:
-        print("")
+    elif carga_total > 60 or presion_sistema > 100: 
+        estado_de_la_computadora = "riesgo alto"
+    else:
+        estado_de_la_computadora = "todo ok"
 
+    match estado_de_la_computadora:
+        case "Computadora segura":
+            mensaje = f""
+        case "todo ok":
+            print
 
-    return procesar_datos
+    return mensaje
 
 cpu = int(input("Ingrese % de uso de CPU: "))
 while cpu < 0:
