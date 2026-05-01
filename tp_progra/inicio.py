@@ -1,5 +1,32 @@
-def solicitar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos,):
+def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, estado_firewall):
+    #8 condiciones minimas
+    #calculo 1: carga total
+    carga_total = (cpu + ram) / 2
+
+    #calculo 2: nivel estimado de riesgo
+    presion_sistema = us_conectados + procesos_activos
+
+    #calculo 3:
+    recursos_disponibles = espacio_libre_gb - (procesos_activos * 0.3)
     
+    #regla 1
+    if not estado_firewall == "Inactivo": #aca faltarian 2 variables más?
+        print("Computadora segura")
+
+    #regla 2
+    if cpu > 85 and ram > 80 and estado_firewall == "Inactivo":
+        print("Estado critico")
+
+    #regla 3
+    if us_conectados > 1000 or procesos_activos > 1000:
+        print("Sistema saturado")
+
+    #regla 4
+    if servidor == "Web" and us_conectados > 100 and cpu > 75:
+        print("Alta demanda")
+
+    return procesar_datos
+
 cpu = int(input("Ingrese % de uso de CPU: "))
 while cpu < 0:
     cpu = int(input("Error, el numero ingresado no es correcto, reingresalo: "))
@@ -40,12 +67,7 @@ nombre_administrador = input("Nombre del administrador responsable: ")
 while nombre_administrador == "":
     nombre_administrador = input("Error, ingresa nuevamente el nombre del administrador: ")
 
-#8 condiciones minimos
+variable_a = procesar_datos ()
 
-#regla 1: carga total
-carga_total = (cpu + ram) / 2
 
-#regla 2: nivel estimado de riesgo
-presion_sistema = us_conectados + procesos_activos
-recursos_disponibles = espacio_libre_gb - (procesos_activos * 0.3)
 
