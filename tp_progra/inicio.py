@@ -79,11 +79,11 @@ procesos_activos = int(input("Ingrese cantidad de procesos activos: "))
 while procesos_activos < 0:
     procesos_activos = int(input("Error, el numero ingresado no es correcto, reingresalo: "))
 
-sistema_operativo = input("Linux / Windows Server": )
+sistema_operativo = input("Linux / Windows Server: ")
 while sistema_operativo != "linux" and sistema_operativo != "windows server":
     sistema_operativo = input("Error, reingresa el sistema operativo (linux / windows server): ")
 
-estado_firewall = input("Activo / Inactivo": )
+estado_firewall = input("Activo / Inactivo: ")
 while estado_firewall != "activo" and estado_firewall != "inactivo":
     estado_firewall = input("Error, informa nuevamente el estado del firewall (activo / inactivo): ")
 
