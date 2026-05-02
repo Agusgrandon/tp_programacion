@@ -1,4 +1,4 @@
-def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, estado_firewall):
+def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, estado_firewall, nombre_servidor):
   
     #calculo 1: carga total
     carga_total = (cpu + ram) / 2
@@ -7,11 +7,7 @@ def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, 
     #calculo 3:
     recursos_disponibles = espacio_libre_gb - (procesos_activos * 0.3)
     
-    #regla 1
-    if not estado_firewall == "Inactivo": 
-        estado_de_la_computadora = "Computadora segura"
-    #regla 2
-    elif cpu > 85 and ram > 80 and estado_firewall == "Inactivo":
+    if cpu > 85 and ram > 80 and estado_firewall == "inactivo":
         estado_de_la_computadora = "Estado critico"
     #regla 3
     elif us_conectados > 1000 or procesos_activos > 1000:
@@ -28,14 +24,44 @@ def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, 
     # 7
     elif carga_total > 60 or presion_sistema > 100: 
         estado_de_la_computadora = "riesgo alto"
+    elif not estado_firewall == "inactivo": 
+        estado_de_la_computadora = "Computadora segura"
     else:
         estado_de_la_computadora = "todo ok"
 
     match estado_de_la_computadora:
+        case "Estado critico":
+            mensaje = (f"- Diagnostico del servidor {nombre_servidor}\n"
+                       f"Estado general: {estado_de_la_computadora}\n"
+                       f"Problemas detectados: el firewall esta inactivo, te sugerimos activarlo de inmediato")
+        case "Sistema saturado":
+            mensaje = (f"- Diagnostico del servidor {nombre_servidor}\n"
+                       f"Estado general: {estado_de_la_computadora}\n"
+                       f"Problemas detectados: el sistema esta saturado, te sugerimos aguardar")
+        case "Alta demanda":
+            mensaje = (f"- Diagnostico del servidor {nombre_servidor}\n"
+                       f"Estado general: {estado_de_la_computadora}\n"
+                       f"Problemas detectados: hay alta demanda en el servidor, intentalo mas tarde")
+        case "el disco esta casi lleno":
+            mensaje = (f"- Diagnostico del servidor {nombre_servidor}\n"
+                       f"Estado general: {estado_de_la_computadora}\n"
+                       f"Problemas detectados: el disco se encuentra lleno, te sugerimos liberar espacio")
+        case "sistema muy bajo":
+            mensaje = (f"- Diagnostico del servidor {nombre_servidor}\n"
+                       f"Estado general: {estado_de_la_computadora}\n"
+                       f"Problemas detectados: sobrecarga, te sugerimos monitorear cada una hora")
+        case "riesgo alto":
+            mensaje = (f"- Diagnostico del servidor {nombre_servidor}\n"
+                       f"Estado general: {estado_de_la_computadora}\n"
+                       f"Problemas detectados: riesgo alto")
         case "Computadora segura":
-            mensaje = f""
-        case "todo ok":
-            print
+            mensaje = (f"- Diagnostico del servidor {nombre_servidor}\n"
+                       f"Estado general: {estado_de_la_computadora}\n"
+                       f"Tu compu esta ok, la podes usar")
+        case _:
+            mensaje = (f"- Diagnostico del servidor {nombre_servidor}\n"
+                       f"Estado general: {estado_de_la_computadora}\n"
+                       f"Problemas detectados: tu compu esta ok, la podes usar!")
 
     return mensaje
 
@@ -79,7 +105,8 @@ nombre_administrador = input("Nombre del administrador responsable: ")
 while nombre_administrador == "":
     nombre_administrador = input("Error, ingresa nuevamente el nombre del administrador: ")
 
-variable_a = procesar_datos ()
+variable_a = procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, estado_firewall, nombre_servidor)
+print(variable_a)
 
 
 
