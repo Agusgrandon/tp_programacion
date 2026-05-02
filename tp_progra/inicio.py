@@ -1,30 +1,23 @@
-def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, estado_firewall, nombre_servidor):
-  
-    #calculo 1: carga total
+def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, estado_firewall, nombre_servidor, administrador):
+    
+    #calculos
     carga_total = (cpu + ram) / 2
-    #calculo 2: nivel estimado de riesgo
     presion_sistema = us_conectados + procesos_activos
-    #calculo 3:
     recursos_disponibles = espacio_libre_gb - (procesos_activos * 0.3)
     
     if cpu > 85 and ram > 80 and estado_firewall == "inactivo":
         estado_de_la_computadora = "Estado critico"
-    #regla 3
     elif us_conectados > 1000 or procesos_activos > 1000:
         estado_de_la_computadora = "Sistema saturado"
-    #regla 4
     elif servidor == "Web" and us_conectados > 100 and cpu > 75:
         estado_de_la_computadora = "Alta demanda"
-    #regla 5
     elif espacio_libre_gb < 10 or procesos_activos:
         estado_de_la_computadora = "el disco esta casi lleno"
-    # 6
     elif presion_sistema > 1000 and recursos_disponibles < 20 and ram < 10:
         estado_de_la_computadora = "sistema muy bajo"
-    # 7
     elif carga_total > 60 or presion_sistema > 100: 
         estado_de_la_computadora = "riesgo alto"
-    elif not estado_firewall == "inactivo": 
+    elif not estado_firewall == "inactivo": # pendiente de ver para corregir 
         estado_de_la_computadora = "Computadora segura"
     else:
         estado_de_la_computadora = "todo ok"
@@ -33,6 +26,7 @@ def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, 
         case "Estado critico":
             mensaje = (f"- Diagnostico del servidor {nombre_servidor}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
+                       f"Administrado por {administrador}\n"
                        f"Problemas detectados: el firewall esta inactivo, te sugerimos activarlo de inmediato")
         case "Sistema saturado":
             mensaje = (f"- Diagnostico del servidor {nombre_servidor}\n"
@@ -85,11 +79,11 @@ procesos_activos = int(input("Ingrese cantidad de procesos activos: "))
 while procesos_activos < 0:
     procesos_activos = int(input("Error, el numero ingresado no es correcto, reingresalo: "))
 
-sistema_operativo = input("Linux / Windows Server")
+sistema_operativo = input("Linux / Windows Server": )
 while sistema_operativo != "linux" and sistema_operativo != "windows server":
     sistema_operativo = input("Error, reingresa el sistema operativo (linux / windows server): ")
 
-estado_firewall = input("Activo / Inactivo")
+estado_firewall = input("Activo / Inactivo": )
 while estado_firewall != "activo" and estado_firewall != "inactivo":
     estado_firewall = input("Error, informa nuevamente el estado del firewall (activo / inactivo): ")
 
@@ -105,7 +99,7 @@ nombre_administrador = input("Nombre del administrador responsable: ")
 while nombre_administrador == "":
     nombre_administrador = input("Error, ingresa nuevamente el nombre del administrador: ")
 
-variable_a = procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, estado_firewall, nombre_servidor)
+variable_a = procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, estado_firewall, nombre_servidor, nombre_administrador)
 print(variable_a)
 
 
