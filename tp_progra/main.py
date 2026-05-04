@@ -1,4 +1,4 @@
-def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, estado_firewall, nombre_servidor, administrador):
+def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, estado_firewall, servidor, administrador):
     
     #calculos
     carga_total = (cpu + ram) / 2
@@ -24,36 +24,36 @@ def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, 
 
     match estado_de_la_computadora:
         case "Estado critico":
-            mensaje = (f"- Diagnostico del servidor {nombre_servidor}\n"
+            mensaje = (f"- Diagnostico del servidor {servidor}\n"
+                       f"Administrador: {administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
-                       f"Administrado por {administrador}\n"
                        f"Problemas detectados: el firewall esta inactivo, te sugerimos activarlo de inmediato")
         case "Sistema saturado":
-            mensaje = (f"- Diagnostico del servidor {nombre_servidor}\n"
+            mensaje = (f"- Diagnostico del servidor {servidor}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: el sistema esta saturado, te sugerimos aguardar")
         case "Alta demanda":
-            mensaje = (f"- Diagnostico del servidor {nombre_servidor}\n"
+            mensaje = (f"- Diagnostico del servidor {servidor}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: hay alta demanda en el servidor, intentalo mas tarde")
         case "el disco esta casi lleno":
-            mensaje = (f"- Diagnostico del servidor {nombre_servidor}\n"
+            mensaje = (f"- Diagnostico del servidor {servidor}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: el disco se encuentra lleno, te sugerimos liberar espacio")
         case "sistema muy bajo":
-            mensaje = (f"- Diagnostico del servidor {nombre_servidor}\n"
+            mensaje = (f"- Diagnostico del servidor {servidor}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: sobrecarga, te sugerimos monitorear cada una hora")
         case "riesgo alto":
-            mensaje = (f"- Diagnostico del servidor {nombre_servidor}\n"
+            mensaje = (f"- Diagnostico del servidor {servidor}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: riesgo alto")
         case "Computadora segura":
-            mensaje = (f"- Diagnostico del servidor {nombre_servidor}\n"
+            mensaje = (f"- Diagnostico del servidor {servidor}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Tu compu esta ok, la podes usar")
         case _:
-            mensaje = (f"- Diagnostico del servidor {nombre_servidor}\n"
+            mensaje = (f"- Diagnostico del servidor {servidor}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: tu compu esta ok, la podes usar!")
 
