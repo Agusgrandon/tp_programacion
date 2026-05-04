@@ -6,34 +6,34 @@ def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, 
     recursos_disponibles = espacio_libre_gb - (procesos_activos * 0.3)
     
     if cpu > 85 and ram > 80 and estado_firewall == "inactivo":
-        estado_de_la_computadora = "Estado critico"
+        estado_de_la_computadora = "estado critico"
     elif us_conectados > 1000 or procesos_activos > 1000:
-        estado_de_la_computadora = "Sistema saturado"
+        estado_de_la_computadora = "sistema saturado"
     elif (servidor == "web" or servidor == "Web") and us_conectados > 100 and cpu > 75:
-        estado_de_la_computadora = "Alta demanda"
+        estado_de_la_computadora = "alta demanda"
     elif espacio_libre_gb < 10 or procesos_activos > 50:
         estado_de_la_computadora = "el disco esta casi lleno"
     elif presion_sistema > 1000 and recursos_disponibles < 20 and ram < 10:
         estado_de_la_computadora = "sistema muy bajo"
     elif carga_total > 60 or presion_sistema > 100: 
         estado_de_la_computadora = "riesgo alto"
-    elif not estado_firewall == "inactivo": # pendiente de ver para corregir 
-        estado_de_la_computadora = "Computadora segura"
+    elif not (servidor == "web" or servidor == "Web") and us_conectados < 50:
+        estado_de_la_computadora = "baja demanda"
     else:
-        estado_de_la_computadora = "todo ok"
+        estado_de_la_computadora = "computadora bien"
 
     match estado_de_la_computadora:
-        case "Estado critico":
+        case "estado critico":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
                        f"Administrador: {administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: el firewall esta inactivo, te sugerimos activarlo de inmediato")
-        case "Sistema saturado":
+        case "eistema saturado":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
                        f"Administrador: {administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: el sistema esta saturado, te sugerimos aguardar")
-        case "Alta demanda":
+        case "elta demanda":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
                        f"Administrador: {administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
@@ -53,11 +53,11 @@ def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, 
                        f"Administrador: {administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: riesgo alto")
-        case "Computadora segura":
+        case "baja demanda":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
                        f"Administrador: {administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
-                       f"Tu compu esta ok, la podes usar")
+                       f"Hay poca demanda, podes usar con normalidad tu compu!")
         case _:
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
                        f"Administrador: {administrador}\n"
