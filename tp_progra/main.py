@@ -26,7 +26,7 @@ def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, 
         case "estado critico":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
                        f"Administrador: {administrador}\n"
-                       f"Estado general: {estado_de_la_computadora}\n"
+                       f"Estado general: 🚩{estado_de_la_computadora}\n"
                        f"Problemas detectados: el firewall esta inactivo, te sugerimos activarlo de inmediato")
         case "eistema saturado":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
