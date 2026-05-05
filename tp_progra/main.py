@@ -46,42 +46,42 @@ def procesar_datos(cpu: int, ram: int, espacio_libre_gb: int, us_conectados: int
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
                        f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
-                       f"Problemas detectados: el firewall esta inactivo, te sugerimos activarlo de inmediato")
+                       f"Problemas detectados: el firewall esta inactivo, te sugerimos activarlo de inmediato 🚨")
         case "sistema saturado":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
                        f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
-                       f"Problemas detectados: el sistema esta saturado, te sugerimos aguardar")
+                       f"Problemas detectados: el sistema esta saturado, te sugerimos aguardar 🙌")
         case "alta demanda":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
                        f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
-                       f"Problemas detectados: hay alta demanda en el servidor, intentalo mas tarde")
+                       f"Problemas detectados: hay alta demanda en el servidor, intentalo mas tarde 🙌")
         case "el disco esta casi lleno":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
                        f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
-                       f"Problemas detectados: el disco se encuentra lleno, te sugerimos liberar espacio")
+                       f"Problemas detectados: el disco se encuentra lleno, te sugerimos liberar espacio 💻")
         case "sistema muy bajo":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
                        f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
-                       f"Problemas detectados: sobrecarga, te sugerimos monitorear cada una hora")
+                       f"Problemas detectados: sobrecarga, te sugerimos monitorear cada una hora 💻")
         case "riesgo alto":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
                        f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
-                       f"Problemas detectados: riesgo alto")
+                       f"Problemas detectados: riesgo alto 🚨")
         case "baja demanda":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
                        f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
-                       f"Hay poca demanda, podes usar con normalidad tu compu!")
+                       f"Hay poca demanda, podes usar con normalidad tu compu! 🎉")
         case _:
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
                        f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
-                       f"Problemas detectados: tu compu esta ok, la podes usar!")
+                       f"Problemas detectados: tu compu esta ok, la podes usar! 🎉")
 
     return mensaje
 
