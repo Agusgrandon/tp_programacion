@@ -114,7 +114,7 @@ while estado_firewall != "activo" and estado_firewall != "inactivo":
     estado_firewall = input("Error, informa nuevamente el estado del firewall (activo / inactivo): ")
 
 servidor = input("Ingrese tipo de servidor (web / base de datos / archivos): ")
-while servidor != "web" and servidor != "web" and servidor != "base de datos" and servidor != "archivos":
+while servidor != "web" and servidor != "Web" and servidor != "base de datos" and servidor != "archivos":
     servidor = input("Error, informa nuevamente el tipo de servidor (web / base de datos / archivos): ")
 
 nombre_servidor = input("Ingrese el nombre del servidor: ")
