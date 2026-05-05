@@ -1,4 +1,23 @@
-def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, estado_firewall, servidor, nombre_servidor, administrador):
+def procesar_datos(cpu: int, ram: int, espacio_libre_gb: int, us_conectados: int, procesos_activos: int, estado_firewall: str, servidor: str, nombre_servidor: str, nombre_administrador: str):
+    """
+    Analiza el estado de un servidor basándose en métricas de rendimiento y seguridad.
+    Esta función calcula indicadores de carga y recursos, evalúa múltiples condiciones 
+    lógicas para determinar la salud del sistema y genera un diagnóstico detallado.
+    
+    Args:
+        cpu (int): Valor de porcentaje de uso de CPU
+        ram (int): Valor de porcentaje de memoria RAM
+        espacio_libre_gb (int): Valor que indica el espacio libre en disco (GB)
+        us_conectados (int): Valor que indica la cantidad de usuarios conectados
+        procesos_activos (int): Valor que indica la cantidad de procesos activos
+        estado_firewall (str): Valor que indica el estado del firewall (activo/inactivo)
+        servidor (str): Valor que indica el tipo de servidor (web / base de datos / archivos)
+        nombre_servidor (str): Valor que indica el nombre del servidor
+        nombre_administrador (str): Valor que indica el nombre del administrador responsable
+
+    Returns:
+        int/float/str: Valor que contiene el estado de los elementos
+    """
     
     #calculos
     carga_total = (cpu + ram) / 2
@@ -25,42 +44,44 @@ def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, 
     match estado_de_la_computadora:
         case "estado critico":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
-                       f"Administrador: {administrador}\n"
-                       f"Estado general: 🚩{estado_de_la_computadora}\n"
+                       f"Administrador: {nombre_administrador}\n"
+                       f"Estado general: {estado_de_la_computadora}\n"
+                       f"Administrador: {nombre_administrador}\n"
+                       f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: el firewall esta inactivo, te sugerimos activarlo de inmediato")
-        case "eistema saturado":
+        case "sistema saturado":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
-                       f"Administrador: {administrador}\n"
+                       f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: el sistema esta saturado, te sugerimos aguardar")
-        case "elta demanda":
+        case "alta demanda":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
-                       f"Administrador: {administrador}\n"
+                       f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: hay alta demanda en el servidor, intentalo mas tarde")
         case "el disco esta casi lleno":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
-                       f"Administrador: {administrador}\n"
+                       f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: el disco se encuentra lleno, te sugerimos liberar espacio")
         case "sistema muy bajo":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
-                       f"Administrador: {administrador}\n"
+                       f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: sobrecarga, te sugerimos monitorear cada una hora")
         case "riesgo alto":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
-                       f"Administrador: {administrador}\n"
+                       f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: riesgo alto")
         case "baja demanda":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
-                       f"Administrador: {administrador}\n"
+                       f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Hay poca demanda, podes usar con normalidad tu compu!")
         case _:
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
-                       f"Administrador: {administrador}\n"
+                       f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: tu compu esta ok, la podes usar!")
 
@@ -74,11 +95,11 @@ ram = int(input("Ingrese % de memoria RAM: "))
 while ram < 0:
     ram = int(input("Error, el numero ingresado no es correcto, reingresalo: "))
 
-espacio_libre_gb = int(input("Espacio libre en disco: "))
+espacio_libre_gb = int(input("Ingrese espacio libre en disco (GB): "))
 while espacio_libre_gb < 0:
     espacio_libre_gb = int(input("Error, el numero ingresado no es correcto, reingresalo: "))
 
-us_conectados = int(input("Informe los usuarios conectados: "))
+us_conectados = int(input("Ingrese cantidad de usuarios conectados: "))
 while us_conectados < 0:
     us_conectados = int(input("Error, el numero ingresado no es correcto, reingresalo: "))
 
@@ -86,23 +107,23 @@ procesos_activos = int(input("Ingrese cantidad de procesos activos: "))
 while procesos_activos < 0:
     procesos_activos = int(input("Error, el numero ingresado no es correcto, reingresalo: "))
 
-sistema_operativo = input("informe el sistema operativo, Linux/Windows Server: ")
+sistema_operativo = input("Ingrese sistema operativo (linux / windows server): ")
 while sistema_operativo != "linux" and sistema_operativo != "windows server":
     sistema_operativo = input("Error, reingresa el sistema operativo (linux / windows server): ")
 
-estado_firewall = input("Estado Firewall: Activo/Inactivo: ")
+estado_firewall = input("Ingrese estado del firewall (activo / inactivo): ")
 while estado_firewall != "activo" and estado_firewall != "inactivo":
     estado_firewall = input("Error, informa nuevamente el estado del firewall (activo / inactivo): ")
 
-servidor = input("Informe el servidor: Web / Base de datos / Archivos: ")
-while servidor != "web" and servidor != "Web" and servidor != "base de datos" and servidor != "archivos":
+servidor = input("Ingrese tipo de servidor (web / base de datos / archivos): ")
+while servidor != "web" and servidor != "web" and servidor != "base de datos" and servidor != "archivos":
     servidor = input("Error, informa nuevamente el tipo de servidor (web / base de datos / archivos): ")
 
-nombre_servidor = input("Nombre del servidor: ")
+nombre_servidor = input("Ingrese el nombre del servidor: ")
 while nombre_servidor == "":
     nombre_servidor = input("Error, ingresa nuevamente el nombre del servidor: ")
 
-nombre_administrador = input("Nombre del administrador responsable: ")
+nombre_administrador = input("Ingrese el nombre del administrador responsable: ")
 while nombre_administrador == "":
     nombre_administrador = input("Error, ingresa nuevamente el nombre del administrador: ")
 
