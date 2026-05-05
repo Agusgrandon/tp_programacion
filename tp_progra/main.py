@@ -19,7 +19,6 @@ def procesar_datos(cpu: int, ram: int, espacio_libre_gb: int, us_conectados: int
         int/float/str: Valor que contiene el estado de los elementos
     """
     
-    #calculos
     carga_total = (cpu + ram) / 2
     presion_sistema = us_conectados + procesos_activos
     recursos_disponibles = espacio_libre_gb - (procesos_activos * 0.3)
