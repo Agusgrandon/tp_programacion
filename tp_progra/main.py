@@ -1,4 +1,23 @@
-def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, estado_firewall, servidor, nombre_servidor, administrador):
+def procesar_datos(cpu: int, ram: int, espacio_libre_gb: int, us_conectados: int, procesos_activos: int, estado_firewall: str, servidor: str, nombre_servidor: str, nombre_administrador: str):
+    """
+    Analiza el estado de un servidor basándose en métricas de rendimiento y seguridad.
+    Esta función calcula indicadores de carga y recursos, evalúa múltiples condiciones 
+    lógicas para determinar la salud del sistema y genera un diagnóstico detallado.
+    
+    Args:
+        cpu (int): Valor de porcentaje de uso de CPU
+        ram (int): Valor de porcentaje de memoria RAM
+        espacio_libre_gb (int): Valor que indica el espacio libre en disco (GB)
+        us_conectados (int): Valor que indica la cantidad de usuarios conectados
+        procesos_activos (int): Valor que indica la cantidad de procesos activos
+        estado_firewall (str): Valor que indica el estado del firewall (activo/inactivo)
+        servidor (str): Valor que indica el tipo de servidor (web / base de datos / archivos)
+        nombre_servidor (str): Valor que indica el nombre del servidor
+        nombre_administrador (str): Valor que indica el nombre del administrador responsable
+
+    Returns:
+        int/float/str: Valor que contiene el estado de los elementos
+    """
     
     #calculos
     carga_total = (cpu + ram) / 2
@@ -25,42 +44,42 @@ def procesar_datos(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, 
     match estado_de_la_computadora:
         case "estado critico":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
-                       f"Administrador: {administrador}\n"
+                       f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: el firewall esta inactivo, te sugerimos activarlo de inmediato")
         case "sistema saturado":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
-                       f"Administrador: {administrador}\n"
+                       f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: el sistema esta saturado, te sugerimos aguardar")
         case "alta demanda":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
-                       f"Administrador: {administrador}\n"
+                       f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: hay alta demanda en el servidor, intentalo mas tarde")
         case "el disco esta casi lleno":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
-                       f"Administrador: {administrador}\n"
+                       f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: el disco se encuentra lleno, te sugerimos liberar espacio")
         case "sistema muy bajo":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
-                       f"Administrador: {administrador}\n"
+                       f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: sobrecarga, te sugerimos monitorear cada una hora")
         case "riesgo alto":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
-                       f"Administrador: {administrador}\n"
+                       f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: riesgo alto")
         case "baja demanda":
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
-                       f"Administrador: {administrador}\n"
+                       f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Hay poca demanda, podes usar con normalidad tu compu!")
         case _:
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
-                       f"Administrador: {administrador}\n"
+                       f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
                        f"Problemas detectados: tu compu esta ok, la podes usar!")
 
