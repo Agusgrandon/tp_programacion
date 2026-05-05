@@ -5,7 +5,7 @@
 ![UTN](https://img.shields.io/badge/UTN-Avellaneda-red)
 ![Materia](https://img.shields.io/badge/Materia-Programacion%201-orange)
 ![Sprint](https://img.shields.io/badge/Sprint-1-green)
-![Estado](https://img.shields.io/badge/Estado-En%20desarrollo-yellow)
+![Estado](https://img.shields.io/badge/Estado-Terminado-brightgreen)
 
 ## 📋 Descripción
 Sistema por consola desarrollado en Python que analiza variables 
