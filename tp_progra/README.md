@@ -14,12 +14,12 @@ alertas y recomendaciones técnicas automáticas.
 ## Materia
 Programación 1 - UTN Avellaneda
 
-## Participantes: 
-Maiten Lopez Hidalgo
-Agustina Grandon
-Xiomara Nicho
-Camila Velasquez
-Morena Gluszczuk
+## 👥 Participantes: 
+- Maitén López Hidalgo
+- Agustina Grandón
+- Xiomara Nicho
+- Camila Velásquez
+- Morena Gluszczuk
 
 # Datos que solicita el sistema
 - Porcentaje de uso de CPU
