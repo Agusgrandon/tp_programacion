@@ -1,6 +1,12 @@
-# Sistema de Diagnóstico y Configuración de Servidor
+# 🖥️ Sistema de Diagnóstico y Configuración de Servidor
 
-## Descripción
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![UTN](https://img.shields.io/badge/UTN-Avellaneda-red)
+![Materia](https://img.shields.io/badge/Materia-Programacion%201-orange)
+![Sprint](https://img.shields.io/badge/Sprint-1-green)
+![Estado](https://img.shields.io/badge/Estado-En%20desarrollo-yellow)
+
+## 📋 Descripción
 Sistema por consola desarrollado en Python que analiza variables 
 de configuración de un servidor, evalúa reglas lógicas y genera 
 alertas y recomendaciones técnicas automáticas.
