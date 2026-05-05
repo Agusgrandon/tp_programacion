@@ -80,7 +80,7 @@ def procesar_datos(cpu: int, ram: int, espacio_libre_gb: int, us_conectados: int
             mensaje = (f"-- Diagnostico del servidor {nombre_servidor} --\n"
                        f"Administrador: {nombre_administrador}\n"
                        f"Estado general: {estado_de_la_computadora}\n"
-                       f"Problemas detectados: tu compu esta ok, la podes usar! 🎉")
+                       f"Tu compu esta ok, la podes usar! 🎉")
 
     return mensaje
 
