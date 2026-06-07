@@ -1,5 +1,5 @@
 ## 🖥️ Sistema de Diagnóstico y Configuración de Servidor
-### *Trabajo Práctico Integrador - Sprint 1*
+### *Trabajo Práctico Integrador - Sprint 2*
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
 ![UTN](https://img.shields.io/badge/UTN-Avellaneda-red)
