@@ -24,25 +24,28 @@ def evaluar_sistema(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos,
     """Evalúa las micro-reglas."""
     
     if regla_sobrecarga(cpu, ram, estado_firewall):
-        return "ESTADO CRÍTICO"
+        estado_de_la_computadora = "Esta computadora esta en estado critico"
         
     elif regla_saturado(us_conectados, procesos_activos):
-        return "SISTEMA SATURADO"
+        estado_de_la_computadora = "Esta computadora esta en estado saturado"
         
     elif regla_muy_bajo(presion_sistema, recursos_disponibles, ram):
-        return "SISTEMA MUY BAJO"
+        estado_de_la_computadora = "Esta computadora esta con un sistema muy bajo"
         
     elif regla_alta_demanda(servidor, us_conectados, cpu):
-        return "ALTA DEMANDA"
+        estado_de_la_computadora = "Esta computadora esta con alta demanda"
         
     elif regla_riesgo_alto(carga_total, presion_sistema):
-        return "RIESGO ALTO"
+        estado_de_la_computadora = "Esta computadora tiene alto riesgo"
         
     elif regla_disco_lleno(espacio_libre_gb, procesos_activos):
-        return "EL DISCO ESTA CASI LLENO"
+        estado_de_la_computadora = "Esta computadora tiene el disco lleno"
         
     elif regla_baja_demanda(servidor, us_conectados):
-        return "BAJA DEMANDA"
+        estado_de_la_computadora = "Esta computadora tiene baja demanda"
         
     else:
-        return "COMPUTADORA BIEN"
+        estado_de_la_computadora = "La compu esta bien"
+
+    return estado_de_la_computadora
+    
