@@ -16,11 +16,10 @@ alertas y recomendaciones técnicas automáticas.
 Programación 1 - UTN Avellaneda
 
 ## 👥 Participantes: 
-- Maitén López Hidalgo
 - Agustina Grandón
 - Xiomara Nicho
 - Camila Velásquez
-- Morena Gluszczuk
+
 
 # Datos que solicita el sistema
 - Porcentaje de uso de CPU
