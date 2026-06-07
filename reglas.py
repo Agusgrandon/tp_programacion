@@ -19,6 +19,8 @@ def regla_disco_lleno(espacio_libre_gb, procesos_activos):
 def regla_baja_demanda(servidor, us_conectados):
     return not (servidor == "web" or servidor == "Web") and us_conectados < 50
 
+def regla_firewall_alerta(estado_firewall, us_conectados):
+    return estado_firewall == "inactivo" and us_conectados > 0
 
 def evaluar_sistema(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, estado_firewall, servidor, carga_total, presion_sistema, recursos_disponibles):
     """Evalúa las micro-reglas."""
@@ -43,7 +45,9 @@ def evaluar_sistema(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos,
         
     elif regla_baja_demanda(servidor, us_conectados):
         estado_de_la_computadora = "Esta computadora tiene baja demanda"
-        
+
+    elif regla_firewall_alerta(estado_firewall, us_conectados):
+        estado_de_la_computadora = "Esta computadora tiene el firewall inactivo, te recomendamos activarlo"     
     else:
         estado_de_la_computadora = "La compu esta bien"
 
