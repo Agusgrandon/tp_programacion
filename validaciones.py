@@ -1,5 +1,20 @@
 def validar_numero(mensaje_solicitud, minimo, maximo):
-    """Valida que la entrada sea un número entero o decimal válido dentro del rango."""
+    """
+    Valida que sea un número válido y esté dentro del rango permitido.
+
+    Descarta textos vacíos o con puntos mal ubicados, y recorre la 
+    cadena verificando que solo contenga dígitos del 0 al 9, un opcional signo 
+    menos inicial y como máximo un punto decimal. Si la estructura es correcta, 
+    convierte el texto a entero o flotante y controla que no supere los límites.
+
+    Args:
+        mensaje_solicitud (str): El texto que se le muestra en la consola al usuario para pedirle el dato.
+        minimo (int o float): El límite más chico permitido para ese número.
+        maximo (int o float): El límite más grande permitido para ese número.
+
+    Returns:
+        int o float: El número final ya verificado, convertido a su tipo real y listo para usar en los cálculos.
+    """    
     estado_validacion = 0
     resultado = 0
     
@@ -58,8 +73,20 @@ def validar_numero(mensaje_solicitud, minimo, maximo):
 
 def validar_texto(mensaje_solicitud, tipo_validacion, largo_minimo=5):
     """
-    Valida cadenas de caracteres reutilizando la misma estructura básica.
-    tipo_validacion puede ser: "admin" (solo letras) o "servidor" (letras, números y guiones).
+    Pide un texto por teclado y revisa carácter por carácter que cumpla las reglas
+    según si estamos guardando el nombre del administrador o del servidor.
+
+    Usa un while para controlar que la entrada no esté vacía ni tenga solo espacios. Dependiendo 
+    del tipo de validación, arma una lista de caracteres permitidos para filtrar símbolos raros 
+    y se asegura de que el texto tenga contenido real (letras o números) y pase el largo mínimo.
+
+    Args:
+        mensaje_solicitud (str): El texto para pedirle el dato al usuario.
+        tipo_validacion (str): Puede ser "admin" (solo letras) o "servidor" (letras, números y guiones).
+        largo_minimo (int, opcional): La cantidad mínima de caracteres. Por defecto es 5.
+
+    Returns:
+        str: El texto ya verificado y limpio listo para usar.
     """
     estado_validacion = 0
     resultado = ""
@@ -126,7 +153,21 @@ def validar_texto(mensaje_solicitud, tipo_validacion, largo_minimo=5):
 
 
 def validar_opcion_cerrada(mensaje_solicitud, opciones_validas):
-    """Valida si el texto ingresado pertenece al conjunto permitido usando índices."""
+    """
+    Pide un dato por teclado y revisa que coincida exactamente con alguna de las
+    opciones fijas que le pasamos en una lista.
+
+    Usa un while para insistir hasta que el usuario elija bien. Adentro, recorre la 
+    lista de opciones válidas una por una usando sus índices para chequear si lo que 
+    se ingresó pertenece al grupo permitido. Si no coincide con ninguna, te tira el error.
+
+    Args:
+        mensaje_solicitud (str): El texto para pedirle la opción al usuario.
+        opciones_validas (list): La lista de textos válidos (ej: ["activo", "inactivo"]).
+
+    Returns:
+        str: La opción ya validada que eligió el usuario.
+    """
     estado_validacion = 0
     resultado = ""
     
