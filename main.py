@@ -4,6 +4,11 @@ from reglas import evaluar_sistema
 from output import mostrar_diagnostico
 
 def ejecutar_sistema():
+    """ Ejecuta el flujo principal del sistema de diagnóstico de servidores.
+
+    Returns:
+        None. La función controla la ejecución del programa y muestra los resultados por pantalla.
+    """
     # Solicitud y validación de datos
     
     cpu, ram, espacio_libre, usuarios, procesos, firewall, tipo_srv, nom_srv, admin = recolectar_datos()
