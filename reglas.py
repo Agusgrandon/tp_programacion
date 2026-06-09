@@ -23,7 +23,22 @@ def regla_firewall_alerta(estado_firewall, us_conectados):
     return estado_firewall == "inactivo" and us_conectados > 0
 
 def evaluar_sistema(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, estado_firewall, servidor, carga_total, presion_sistema, recursos_disponibles):
-    """Evalúa las micro-reglas."""
+    """Evalúa las micro-reglas.
+        
+    Args:
+        nombre_servidor (str): Nombre del servidor.
+        nombre_administrador (str): Nombre del administrador.
+        estado_de_la_computadora (str): Estado general de la computador.
+        cpu (float): Porcentaje de uso del procesador.
+        ram (float): Porcentaje de uso de la memoria RAM.
+        espacio_libre_gb (float): Espacio libre disponible en disco, en GB.
+        estado_firewall (str): Estado del firewall ("activo" o "inactivo").
+        us_conectados (int): Cantidad de usuarios conectados al servidor.
+        procesos_activos (int): Cantidad de procesos activos en ejecución.
+    
+    Returns:
+        str: estado de la computadora. 
+    """
     
     if regla_sobrecarga(cpu, ram, estado_firewall):
         estado_de_la_computadora = "Esta computadora esta en estado critico"
