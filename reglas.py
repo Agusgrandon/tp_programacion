@@ -28,7 +28,7 @@ def evaluar_sistema(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos,
     Args:
         nombre_servidor (str): Nombre del servidor.
         nombre_administrador (str): Nombre del administrador.
-        estado_de_la_computadora (str): Estado general de la computador.
+        estado_de_la_computadora (str): Estado general de la computadora.
         cpu (float): Porcentaje de uso del procesador.
         ram (float): Porcentaje de uso de la memoria RAM.
         espacio_libre_gb (float): Espacio libre disponible en disco, en GB.
