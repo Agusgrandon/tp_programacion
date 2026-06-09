@@ -19,7 +19,6 @@ def mostrar_diagnostico(nombre_servidor, nombre_administrador, estado_de_la_comp
     print("\n" + "="*50)
     print(f"💻 Diagnóstico del Servidor: {nombre_servidor}")
     print(f"👤 Administrador responsable: {nombre_administrador}")
-    # Este toma el texto en mayúscula que calculó tu reglas.py (ej: "ESTADO CRÍTICO")
     print(f"📊 Estado general: {estado_de_la_computadora}")
     print("-" * 50)
     
