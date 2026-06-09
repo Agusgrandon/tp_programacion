@@ -5,6 +5,7 @@ from output import mostrar_diagnostico
 
 def ejecutar_sistema():
     # Solicitud y validación de datos
+    
     cpu, ram, espacio_libre, usuarios, procesos, firewall, tipo_srv, nom_srv, admin = recolectar_datos()
     
     # Cálculos
