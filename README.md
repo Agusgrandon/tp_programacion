@@ -16,8 +16,17 @@ alertas y recomendaciones técnicas automáticas.
 Programación 1 - UTN Avellaneda
 
 ## 🗂️ Datos que solicita el sistema
-El sistema solicita los siguientes parámetros al administrador del servidor:
-#DatoTipo1Porcentaje de uso de CPUNumérico (0–100)2Porcentaje de uso de RAMNumérico (0–100)3Espacio libre en discoNumérico en GB4Cantidad de usuarios conectadosEntero5Cantidad de procesos activosEntero6Sistema operativolinux / windows server7Estado del firewallactivo / inactivo8Tipo de servidorweb / base de datos / archivos9Nombre del servidorTexto10Nombre del administrador responsableTexto
+
+1. Porcentaje de uso de CPU
+2. Porcentaje de uso de RAM
+3. Espacio libre en disco (GB)
+4. Cantidad de usuarios conectados
+5. Cantidad de procesos activos
+6. Sistema operativo (linux / windows server)
+7. Estado del firewall (activo / inactivo)
+8. Tipo de servidor (web / base de datos / archivos)
+9. Nombre del servidor
+10. Nombre del administrador responsable
 
 ## ⚙️ Funcionamiento
 1. El usuario ingresa los datos del servidor por consola
