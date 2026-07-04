@@ -22,7 +22,7 @@ def regla_baja_demanda(servidor, us_conectados):
 def regla_firewall_alerta(estado_firewall, us_conectados):
     return estado_firewall == "inactivo" and us_conectados > 0
 
-def evaluar_sistema(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos, estado_firewall, servidor, carga_total, presion_sistema, recursos_disponibles):
+def evaluar_sistema(servidor:dict):
     """Evalúa las micro-reglas.
         
     Args:
@@ -39,6 +39,18 @@ def evaluar_sistema(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos,
     Returns:
         str: estado de la computadora. 
     """
+    cpu = servidor["recursos"]["cpu"]
+    ram = servidor["recursos"]["ram"]
+    espacio_libre_gb = servidor["recursos"]["espacio_libre"]
+    us_conectados = servidor["recursos"]["usuarios"]
+    procesos_activos = servidor["recursos"]["procesos"]
+
+    estado_firewall = servidor["configuracion"]["firewall"]
+    tipo_servidor = servidor["configuracion"]["tipo"]
+
+    carga_total = servidor["indicadores"]["carga_total"]
+    presion_sistema = servidor["indicadores"]["presion_sistema"]
+    recursos_disponibles = servidor["indicadores"]["recursos_disponibles"]
     
     if regla_sobrecarga(cpu, ram, estado_firewall):
         estado_de_la_computadora = "Esta computadora esta en estado critico"
@@ -49,7 +61,7 @@ def evaluar_sistema(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos,
     elif regla_muy_bajo(presion_sistema, recursos_disponibles, ram):
         estado_de_la_computadora = "Esta computadora esta con un sistema muy bajo"
         
-    elif regla_alta_demanda(servidor, us_conectados, cpu):
+    elif regla_alta_demanda(tipo_servidor, us_conectados, cpu):
         estado_de_la_computadora = "Esta computadora esta con alta demanda"
         
     elif regla_riesgo_alto(carga_total, presion_sistema):
@@ -58,13 +70,15 @@ def evaluar_sistema(cpu, ram, espacio_libre_gb, us_conectados, procesos_activos,
     elif regla_disco_lleno(espacio_libre_gb, procesos_activos):
         estado_de_la_computadora = "Esta computadora tiene el disco lleno"
         
-    elif regla_baja_demanda(servidor, us_conectados):
+    elif regla_baja_demanda(tipo_servidor, us_conectados):
         estado_de_la_computadora = "Esta computadora tiene baja demanda"
 
     elif regla_firewall_alerta(estado_firewall, us_conectados):
         estado_de_la_computadora = "Esta computadora tiene el firewall inactivo, te recomendamos activarlo"     
     else:
         estado_de_la_computadora = "La compu esta bien"
+    
+    servidor["diagnostico"]["estado"] = estado_de_la_computadora
 
     return estado_de_la_computadora
     

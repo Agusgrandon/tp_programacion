@@ -2,6 +2,9 @@ from inputs import recolectar_datos
 from calculos import calcular_indicadores
 from reglas import evaluar_sistema
 from output import mostrar_diagnostico
+from archivos import cargar_json
+
+servidor = cargar_json("servidor.json", "servidor")
 
 def ejecutar_sistema():
     """Esta es la función principal que maneja todo el flujo del programa.
@@ -18,8 +21,10 @@ def ejecutar_sistema():
         - evaluar_sistema()
         - mostrar_diagnostico()
     """
-    # Solicitud y validación de datos
     
+
+
+    # Solicitud y validación de datos
     cpu, ram, espacio_libre, usuarios, procesos, firewall, tipo_srv, nom_srv, admin = recolectar_datos()
     
     # Cálculos
