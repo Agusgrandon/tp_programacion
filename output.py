@@ -115,3 +115,11 @@ def mostrar_menu_principal():
     print("4 - Mostrar diagnóstico")
     print("5 - Guardar configuración")
     print("6 - Salir")
+
+def mostrar_ejecutar_diagnostico(servidor: dict):
+    print("\nDiagnóstico realizado correctamente.")
+    print("\nIndicadores calculados:")
+    print(f"Carga total: {servidor['indicadores']['carga_total']}")
+    print(f"Presión del sistema: {servidor['indicadores']['presion_sistema']}")
+    print(f"Recursos disponibles: {servidor['indicadores']['recursos_disponibles']}")
+    print(f"\nEstado obtenido: {servidor['diagnostico']['estado']}")

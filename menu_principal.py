@@ -1,7 +1,7 @@
 from inputs import recolectar_datos, modificar_configuracion
 from calculos import calcular_indicadores
 from reglas import evaluar_sistema
-from output import mostrar_diagnostico, mostrar_configuracion, mostrar_menu_principal
+from output import mostrar_diagnostico, mostrar_configuracion, mostrar_menu_principal, mostrar_ejecutar_diagnostico
 from archivos import cargar_json, guardar_datos
 
 
@@ -45,12 +45,7 @@ def ejecutar_sistema() -> None:
             case "3":
                 servidor = calcular_indicadores(servidor)
                 servidor = evaluar_sistema(servidor)
-                print("\nDiagnóstico realizado correctamente.")
-                print("\nIndicadores calculados:")
-                print(f"Carga total: {servidor['indicadores']['carga_total']}")
-                print(f"Presión del sistema: {servidor['indicadores']['presion_sistema']}")
-                print(f"Recursos disponibles: {servidor['indicadores']['recursos_disponibles']}")
-                print(f"\nEstado obtenido: {servidor['diagnostico']['estado']}")
+                mostrar_ejecutar_diagnostico(servidor)
             case "4":
                 mostrar_diagnostico(servidor)
             case "5":
