@@ -14,7 +14,7 @@ def cargar_json(nombre_archivo, key) -> dict:
         data = json.load(archivo)
     return(data[key])
 
-def guardar_datos(alumnos:dict) -> None:
+def guardar_datos(servidor:dict) -> None:
     """Guarda los datos de los alumnos en el archivo JSON.
 
     Args:
@@ -23,5 +23,5 @@ def guardar_datos(alumnos:dict) -> None:
     Returns:
         None: La función no devuelve ningún valor.
     """
-    with open("data/alumnos.json", "w", encoding="utf-8") as archivo:
-        json.dump({"alumnos": alumnos}, archivo, indent=4)
+    with open("data/servidor.json", "w", encoding="utf-8") as archivo:
+        json.dump({"servidor": servidor}, archivo, indent=4)

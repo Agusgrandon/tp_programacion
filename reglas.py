@@ -22,22 +22,14 @@ def regla_baja_demanda(servidor, us_conectados):
 def regla_firewall_alerta(estado_firewall, us_conectados):
     return estado_firewall == "inactivo" and us_conectados > 0
 
-def evaluar_sistema(servidor:dict):
+def evaluar_sistema(servidor:dict) -> dict:
     """Evalúa las micro-reglas.
         
-    Args:
-        nombre_servidor (str): Nombre del servidor.
-        nombre_administrador (str): Nombre del administrador.
-        estado_de_la_computadora (str): Estado general de la computadora.
-        cpu (float): Porcentaje de uso del procesador.
-        ram (float): Porcentaje de uso de la memoria RAM.
-        espacio_libre_gb (float): Espacio libre disponible en disco, en GB.
-        estado_firewall (str): Estado del firewall ("activo" o "inactivo").
-        us_conectados (int): Cantidad de usuarios conectados al servidor.
-        procesos_activos (int): Cantidad de procesos activos en ejecución.
+    Args: 
+        servidor (dict): Diccionario con la información del servidor.
     
     Returns:
-        str: estado de la computadora. 
+        dict. 
     """
     cpu = servidor["recursos"]["cpu"]
     ram = servidor["recursos"]["ram"]
@@ -80,5 +72,5 @@ def evaluar_sistema(servidor:dict):
     
     servidor["diagnostico"]["estado"] = estado_de_la_computadora
 
-    return estado_de_la_computadora
+    return servidor
     

@@ -1,48 +1,71 @@
-from inputs import recolectar_datos
+from inputs import recolectar_datos, modificar_configuracion
 from calculos import calcular_indicadores
 from reglas import evaluar_sistema
-from output import mostrar_diagnostico
-from archivos import cargar_json
+from output import mostrar_diagnostico, mostrar_configuracion
+from archivos import cargar_json, guardar_datos
 
-servidor = cargar_json("servidor.json", "servidor")
-
-def ejecutar_sistema():
-    """Esta es la función principal que maneja todo el flujo del programa.
-    
-    Básicamente, lo que hace es organizar y llamar en orden a las demás etapas:
-    1. Primero te pide y valida todos los datos del servidor (como la CPU, RAM, etc.).
-    2. Después, con esos datos, hace las cuentas matemáticas para sacar los indicadores.
-    3. Con esos números listos, pasa toda la info por el sistema de reglas para ver el estado de salud del servidor.
-    4. Por último, arma las alertas en pantalla y le muestra el diagnóstico completo al administrador.
-
-    Llama a estas funciones:
-        - recolectar_datos()
-        - calcular_indicadores()
-        - evaluar_sistema()
-        - mostrar_diagnostico()
-
-    1) Cargar configuracion
-2) Mostrar configuracion
-3) Modificar configuracion
-4) Ejecutar diagnostico
-5) Guardar configuracion
-6) Salir
-
+def ejecutar_sistema() -> None:
     """
-    
+    Ejecuta el menú principal del sistema de diagnóstico de servidores.
 
+    Al iniciar el programa intenta cargar la configuración almacenada en el
+    archivo JSON. Si no existe información, solicita al usuario el ingreso
+    de una nueva configuración.
 
-    # Solicitud y validación de datos
-    cpu, ram, espacio_libre, usuarios, procesos, firewall, tipo_srv, nom_srv, admin = recolectar_datos()
-    
-    # Cálculos
-    carga, presion, recursos = calcular_indicadores(cpu, ram, usuarios, procesos, espacio_libre)
-    
-    # Evaluación de reglas
-    estado = evaluar_sistema(cpu, ram, espacio_libre, usuarios, procesos, firewall, tipo_srv, carga, presion, recursos)
-    
-    # Generación de alertas y visualización del diagnóstico
-    mostrar_diagnostico(nom_srv, admin, estado, cpu, ram, espacio_libre, firewall, usuarios, procesos)
-    
+    Luego mantiene un menú interactivo que permite visualizar, modificar,
+    diagnosticar y guardar la información del servidor.
+    """
+
+    servidor = cargar_json("data/servidor.json", "servidor")
+
+    if servidor == {}:
+        print("No existe una configuración guardada.")
+        print("Debe ingresar los datos del servidor.\n")
+
+        servidor = recolectar_datos()
+
+        guardar_datos(servidor)
+
+    continuar = True
+
+    while continuar == True:
+
+        print("\n" + "=" * 50)
+        print(" SISTEMA DE DIAGNÓSTICO DE SERVIDORES ")
+        print("=" * 50)
+        print("1 - Mostrar configuración")
+        print("2 - Modificar configuración")
+        print("3 - Ejecutar diagnóstico")
+        print("4 - Mostrar diagnóstico")
+        print("5 - Guardar configuración")
+        print("6 - Salir")
+
+        opcion = input("\nIngrese una opción: ")
+
+        match opcion:
+
+            case "1":
+                mostrar_configuracion(servidor)
+            case "2":
+                modificar_configuracion(servidor)
+            case "3":
+                servidor = calcular_indicadores(servidor)
+                servidor = evaluar_sistema(servidor)
+                print("\nDiagnóstico realizado correctamente.")
+                print("\nIndicadores calculados:")
+                print(f"Carga total: {servidor['indicadores']['carga_total']}")
+                print(f"Presión del sistema: {servidor['indicadores']['presion_sistema']}")
+                print(f"Recursos disponibles: {servidor['indicadores']['recursos_disponibles']}")
+                print(f"\nEstado obtenido: {servidor['diagnostico']['estado']}")
+            case "4":
+                mostrar_diagnostico(servidor)
+            case "5":
+                guardar_datos(servidor)
+                print("\nConfiguración guardada correctamente.")
+            case "6":
+                continuar = False
+                print("\nHasta luego.")
+            case _:
+                print("\nLa opción ingresada no es válida.")
+
 ejecutar_sistema()
-

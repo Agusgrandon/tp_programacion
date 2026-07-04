@@ -1,3 +1,26 @@
 {
-    "servidor": {}
+    "servidor": {
+        "configuracion": {
+            "nombre": "agustina",
+            "administrador": "enrique iglesias",
+            "sistema_operativo": "linux",
+            "tipo": "web",
+            "firewall": "inactivo"
+        },
+        "recursos": {
+            "cpu": 89,
+            "ram": 1,
+            "espacio_libre": 1,
+            "usuarios": 1,
+            "procesos": 3
+        },
+        "indicadores": {
+            "carga_total": 45.0,
+            "presion_sistema": 4,
+            "recursos_disponibles": 0.10000000000000009
+        },
+        "diagnostico": {
+            "estado": "Esta computadora tiene el disco lleno"
+        }
+    }
 }
