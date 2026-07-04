@@ -1,7 +1,7 @@
 from inputs import recolectar_datos, modificar_configuracion
 from calculos import calcular_indicadores
 from reglas import evaluar_sistema
-from output import mostrar_diagnostico, mostrar_configuracion
+from output import mostrar_diagnostico, mostrar_configuracion, mostrar_menu_principal
 from archivos import cargar_json, guardar_datos
 
 
@@ -32,15 +32,7 @@ def ejecutar_sistema() -> None:
 
     while continuar == True:
 
-        print("\n" + "=" * 50)
-        print(" SISTEMA DE DIAGNÓSTICO DE SERVIDORES ")
-        print("=" * 50)
-        print("1 - Mostrar configuración")
-        print("2 - Modificar configuración")
-        print("3 - Ejecutar diagnóstico")
-        print("4 - Mostrar diagnóstico")
-        print("5 - Guardar configuración")
-        print("6 - Salir")
+        mostrar_menu_principal()
 
         opcion = input("\nIngrese una opción: ")
 

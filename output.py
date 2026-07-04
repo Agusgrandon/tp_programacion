@@ -104,3 +104,14 @@ def mostrar_diagnostico(servidor:dict):
         print(" ✓ El servidor funciona correctamente. 🎉")
 
     print("=" * 50 + "\n")
+
+def mostrar_menu_principal():
+    print("\n" + "=" * 50)
+    print(" SISTEMA DE DIAGNÓSTICO DE SERVIDORES ")
+    print("=" * 50)
+    print("1 - Mostrar configuración")
+    print("2 - Modificar configuración")
+    print("3 - Ejecutar diagnóstico")
+    print("4 - Mostrar diagnóstico")
+    print("5 - Guardar configuración")
+    print("6 - Salir")
