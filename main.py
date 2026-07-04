@@ -20,6 +20,14 @@ def ejecutar_sistema():
         - calcular_indicadores()
         - evaluar_sistema()
         - mostrar_diagnostico()
+
+    1) Cargar configuracion
+2) Mostrar configuracion
+3) Modificar configuracion
+4) Ejecutar diagnostico
+5) Guardar configuracion
+6) Salir
+
     """
     
 

@@ -1,74 +1,106 @@
-def mostrar_diagnostico(nombre_servidor, nombre_administrador, estado_de_la_computadora, cpu, ram, espacio_libre_gb, estado_firewall, us_conectados, procesos_activos):
+def mostrar_configuracion(servidor: dict) -> None:
+    """
+    Muestra la configuración actual del servidor.
+
+    Args:
+        servidor (dict): Diccionario con la información del servidor.
+
+    Returns:
+        None.
+    """
+
+    print("\n" + "=" * 50)
+    print("CONFIGURACION DEL SERVIDOR")
+    print("=" * 50)
+
+    print(f"Nombre del servidor: {servidor['configuracion']['nombre']}")
+    print(f"Administrador: {servidor['configuracion']['administrador']}")
+    print(f"Sistema operativo: {servidor['configuracion']['sistema_operativo']}")
+    print(f"Tipo de servidor: {servidor['configuracion']['tipo']}")
+    print(f"Firewall: {servidor['configuracion']['firewall']}")
+
+    print("-" * 50)
+
+    print(f"CPU: {servidor['recursos']['cpu']} %")
+    print(f"RAM: {servidor['recursos']['ram']} %")
+    print(f"Espacio libre: {servidor['recursos']['espacio_libre']} GB")
+    print(f"Usuarios conectados: {servidor['recursos']['usuarios']}")
+    print(f"Procesos activos: {servidor['recursos']['procesos']}")
+
+    print("=" * 50 + "\n")
+
+def mostrar_diagnostico(servidor:dict):
     """Muestra el reporte final combinando el Estado General.
 
     Args:
-        nombre_servidor (str): Nombre del servidor.
-        nombre_administrador (str): Nombre del administrador.
-        estado_de_la_computadora (str): Estado general de la computadora.
-        cpu (float): Porcentaje de uso del procesador.
-        ram (float): Porcentaje de uso de la memoria RAM.
-        espacio_libre_gb (float): Espacio libre disponible en disco, en GB.
-        estado_firewall (str): Estado del firewall ("activo" o "inactivo").
-        us_conectados (int): Cantidad de usuarios conectados al servidor.
-        procesos_activos (int): Cantidad de procesos activos en ejecución.
+        servidor (dict): Diccionario con la información del servidor.
 
     Returns:
-        None. La función únicamente muestra información por pantalla.
+        None. 
     """
+    nombre_servidor = servidor["configuracion"]["nombre"]
+    nombre_administrador = servidor["configuracion"]["administrador"]
+
+    cpu = servidor["recursos"]["cpu"]
+    ram = servidor["recursos"]["ram"]
+    espacio_libre_gb = servidor["recursos"]["espacio_libre"]
+    estado_firewall = servidor["configuracion"]["firewall"]
+    procesos_activos = servidor["recursos"]["procesos"]
+
+    estado_de_la_computadora = servidor["diagnostico"]["estado"]
     
     print("\n" + "="*50)
     print(f"💻 Diagnóstico del Servidor: {nombre_servidor}")
     print(f"👤 Administrador responsable: {nombre_administrador}")
     print(f"📊 Estado general: {estado_de_la_computadora}")
     print("-" * 50)
-    
-    # ACÁ MUESTRA TODOS LOS PROBLEMAS DETECTADOS
     print("Problemas detectados:")
+
     hay_problemas = False
-    
+
     if cpu > 85:
         print(" - Uso de CPU elevado")
         hay_problemas = True
-        
+
     if ram > 80:
         print(" - Uso de memoria RAM elevado")
         hay_problemas = True
-        
+
     if estado_firewall == "inactivo":
         print(" - Firewall desactivado")
         hay_problemas = True
-        
+
     if espacio_libre_gb < 10:
         print(" - Poco espacio en disco")
         hay_problemas = True
-        
+
     if procesos_activos > 50:
         print(" - Sobrecarga de procesos activos")
         hay_problemas = True
 
     if hay_problemas == False:
         print(" - Ninguno. El sistema opera con normalidad. 🎉")
-        
-    print("") 
-    
-    # ACÁ MUESTRA LAS RECOMENDACIONES
+
+    print()
+
     print("Recomendaciones:")
+
     hay_recomendaciones = False
-    
+
     if cpu > 85 or procesos_activos > 50:
         print(" ✓ Reiniciar servicios innecesarios")
         print(" ✓ Evaluar ampliación de recursos")
         hay_recomendaciones = True
-        
+
     if estado_firewall == "inactivo":
         print(" ✓ Activar firewall")
         hay_recomendaciones = True
-        
+
     if espacio_libre_gb < 10:
         print(" ✓ Liberar almacenamiento")
         hay_recomendaciones = True
-        
+
     if hay_recomendaciones == False:
-        print(" ✓ Tu compu esta ok, la podes usar! 🎉")
-        
-    print("="*50 + "\n")
+        print(" ✓ El servidor funciona correctamente. 🎉")
+
+    print("=" * 50 + "\n")
