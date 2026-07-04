@@ -123,3 +123,16 @@ def mostrar_ejecutar_diagnostico(servidor: dict):
     print(f"Presión del sistema: {servidor['indicadores']['presion_sistema']}")
     print(f"Recursos disponibles: {servidor['indicadores']['recursos_disponibles']}")
     print(f"\nEstado obtenido: {servidor['diagnostico']['estado']}")
+
+def mostrar_modificar_configuración():
+    print("\n========== MODIFICAR CONFIGURACIÓN ==========")
+    print("1 - Nombre del servidor")
+    print("2 - Nombre del administrador")
+    print("3 - Sistema operativo")
+    print("4 - Tipo de servidor")
+    print("5 - Estado del firewall")
+    print("6 - CPU")
+    print("7 - RAM")
+    print("8 - Espacio libre")
+    print("9 - Usuarios conectados")
+    print("10 - Procesos activos")

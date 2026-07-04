@@ -1,4 +1,5 @@
 from validaciones import validar_numero, validar_texto, validar_opcion_cerrada
+from output import mostrar_modificar_configuración
 
 def recolectar_datos() -> dict:
     """
@@ -82,18 +83,7 @@ def modificar_configuracion(servidor: dict) -> dict:
     Returns:
         dict: Diccionario del servidor con la información actualizada.
     """
-
-    print("\n========== MODIFICAR CONFIGURACIÓN ==========")
-    print("1 - Nombre del servidor")
-    print("2 - Nombre del administrador")
-    print("3 - Sistema operativo")
-    print("4 - Tipo de servidor")
-    print("5 - Estado del firewall")
-    print("6 - CPU")
-    print("7 - RAM")
-    print("8 - Espacio libre")
-    print("9 - Usuarios conectados")
-    print("10 - Procesos activos")
+    mostrar_modificar_configuración()
 
     opcion = input("\nIngrese una opción: ")
 
