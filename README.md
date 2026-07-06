@@ -22,36 +22,6 @@ Xiomara Nicho
 
 Camila Velásquez
 
-🗂️ Organización de los Diccionarios
-Para cumplir con los requerimientos de la cátedra, estructuramos toda la información en un único diccionario centralizado con sub-diccionarios anidados. Esta arquitectura permite segmentar las responsabilidades de los datos de forma lógica:
-
-```python
-servidor = {
-    "configuracion": {
-        "nombre": str,            # Nombre del servidor
-        "administrador": str,     # Administrador responsable
-        "sistema_operativo": str, # Linux / Windows Server
-        "tipo": str,              # Web / Base de datos / Archivos
-        "firewall": str           # Activo / Inactivo
-    },
-    "recursos": {
-        "cpu": float o int,       # % de uso de CPU
-        "ram": float o int,       # % de uso de RAM
-        "espacio_libre": float,   # GB libres en disco
-        "usuarios": int,          # Cantidad de usuarios conectados
-        "procesos": int           # Cantidad de procesos activos
-    },
-    "indicadores": {
-        "carga_total": float,         # Promedio CPU y RAM
-        "presion_sistema": int,       # Usuarios + procesos
-        "recursos_disponibles": float # Espacio libre ajustado por procesos
-    },
-    "diagnostico": {
-        "estado": str             # Reporte del estado del sistema
-    }
-} 
-
-
 💾 Persistencia de Datos y Formato Elegido
 El sistema implementa la persistencia de datos de manera obligatoria para evitar la pérdida de información al cerrar la consola.
 
@@ -103,3 +73,34 @@ Este proyecto mantiene los lineamientos académicos estrictos de la cursada:
 - Funciones parametrizadas y modulares con alcance acotado.
 
 - Documentación mediante tipado de datos (Type Hints) y Docstrings cortos estilo Google en todas las funciones.
+
+🗂️ Organización de los Diccionarios
+Para cumplir con los requerimientos de la cátedra, estructuramos toda la información en un único diccionario centralizado con sub-diccionarios anidados. Esta arquitectura permite segmentar las responsabilidades de los datos de forma lógica:
+
+python
+servidor = {
+    "configuracion": {
+        "nombre": str,            # Nombre del servidor
+        "administrador": str,     # Administrador responsable
+        "sistema_operativo": str, # Linux / Windows Server
+        "tipo": str,              # Web / Base de datos / Archivos
+        "firewall": str           # Activo / Inactivo
+    },
+    "recursos": {
+        "cpu": float o int,       # % de uso de CPU
+        "ram": float o int,       # % de uso de RAM
+        "espacio_libre": float,   # GB libres en disco
+        "usuarios": int,          # Cantidad de usuarios conectados
+        "procesos": int           # Cantidad de procesos activos
+    },
+    "indicadores": {
+        "carga_total": float,         # Promedio CPU y RAM
+        "presion_sistema": int,       # Usuarios + procesos
+        "recursos_disponibles": float # Espacio libre ajustado por procesos
+    },
+    "diagnostico": {
+        "estado": str             # Reporte del estado del sistema
+    }
+} 
+
+
