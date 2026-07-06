@@ -77,7 +77,7 @@ Este proyecto mantiene los lineamientos académicos estrictos de la cursada:
 🗂️ Organización de los Diccionarios
 Para cumplir con los requerimientos de la cátedra, estructuramos toda la información en un único diccionario centralizado con sub-diccionarios anidados. Esta arquitectura permite segmentar las responsabilidades de los datos de forma lógica:
 
-python
+´´´python
 servidor = {
     "configuracion": {
         "nombre": str,            # Nombre del servidor
