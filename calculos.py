@@ -1,9 +1,14 @@
 def calcular_indicadores(servidor:dict) -> dict:
     """Calcula los indicadores derivados para el motor de decisiones.
+    
     Args:
-
+        servidor (dict): Diccionario con la información completa del servidor. 
+                         Debe contener la clave 'recursos' con los datos de 
+                         cpu, ram, espacio_libre, usuarios y procesos.
+                         
     Returns:
-        
+        dict: El mismo diccionario recibido, pero con la clave 'indicadores' 
+              actualizada con los tres nuevos valores calculados.
     """
     cpu = servidor["recursos"]["cpu"]
     ram = servidor["recursos"]["ram"]
