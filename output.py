@@ -137,6 +137,11 @@ def mostrar_ejecutar_diagnostico(servidor: dict):
     print(f"\nEstado obtenido: {servidor['diagnostico']['estado']}")
 
 def mostrar_modificar_configuración():
+    """Muestra en la consola el submenú con los parámetros del servidor que se pueden editar.
+    
+    Esta función no recibe parámetros ni devuelve ningún valor; su única 
+    responsabilidad es realizar la salida gráfica por pantalla de las opciones de edición.
+    """
     print("\n========== MODIFICAR CONFIGURACIÓN ==========")
     print("1 - Nombre del servidor")
     print("2 - Nombre del administrador")
