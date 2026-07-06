@@ -122,6 +122,13 @@ def mostrar_menu_principal():
     print("6 - Salir")
 
 def mostrar_ejecutar_diagnostico(servidor: dict):
+    """Muestra en pantalla el reporte con los indicadores calculados y el estado final.
+    
+    Args:
+        servidor (dict): Diccionario que contiene las estructuras anidadas 
+                         'indicadores' (con carga_total, presion_sistema y 
+                         recursos_disponibles) y 'diagnostico' (con el estado).
+    """
     print("\nDiagnóstico realizado correctamente.")
     print("\nIndicadores calculados:")
     print(f"Carga total: {servidor['indicadores']['carga_total']}")
