@@ -49,8 +49,9 @@ servidor = {
     "diagnostico": {
         "estado": str             # Reporte del estado del sistema
     }
-}
-´´´
+} 
+
+
 💾 Persistencia de Datos y Formato Elegido
 El sistema implementa la persistencia de datos de manera obligatoria para evitar la pérdida de información al cerrar la consola.
 
