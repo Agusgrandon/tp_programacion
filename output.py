@@ -106,6 +106,11 @@ def mostrar_diagnostico(servidor:dict):
     print("=" * 50 + "\n")
 
 def mostrar_menu_principal():
+    """Muestra en la consola el menú de opciones del sistema.
+    
+    Esta función no recibe parámetros ni devuelve ningún valor; su única 
+    responsabilidad es realizar la salida gráfica por pantalla de la interfaz.
+    """
     print("\n" + "=" * 50)
     print(" SISTEMA DE DIAGNÓSTICO DE SERVIDORES ")
     print("=" * 50)
