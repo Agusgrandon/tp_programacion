@@ -8,22 +8,22 @@
 ![Estado](https://img.shields.io/badge/Estado-Terminado-brightgreen)
 
 ## 📋 Descripción General
-[cite_start]Evolución del sistema de monitoreo por consola desarrollado en Python[cite: 14]. El sistema permite procesar las variables técnicas de un servidor, evaluar un motor de micro-reglas lógicas y generar un diagnóstico de salud del entorno. 
+Evolución del sistema de monitoreo por consola desarrollado en Python. El sistema permite procesar las variables técnicas de un servidor, evaluar un motor de micro-reglas lógicas y generar un diagnóstico de salud del entorno.
 
-[cite_start]Para este tercer sprint, el núcleo del proyecto se transformó para integrar la **organización de la información mediante diccionarios anidados** y la **persistencia de datos en archivos físicos**, permitiendo que la configuración configurada se conserve entre diferentes ejecuciones del programa[cite: 19].
+Para este tercer sprint, el núcleo del proyecto se transformó para integrar la organización de la información mediante diccionarios anidados y la persistencia de datos en archivos físicos, permitiendo que la configuración configurada se conserve entre diferentes ejecuciones del programa.
 
 ## 💡 Materia
-[cite_start]Programación 1 - UTN Avellaneda [cite: 1, 4]
+Programación 1 - UTN Avellaneda
 
 ## 👥 Integrantes
-* Agustina Grandón
-* Xiomara Nicho
-* Camila Velásquez
+Agustina Grandón
 
----
+Xiomara Nicho
 
-## 🗂️ Organización de los Diccionarios
-[cite_start]Para cumplir con los requerimientos de la cátedra [cite: 30][cite_start], estructuramos toda la información en un **único diccionario centralizado con sub-diccionarios anidados**[cite: 82, 83]. [cite_start]Esta arquitectura permite segmentar las responsabilidades de los datos de forma lógica[cite: 37]:
+Camila Velásquez
+
+🗂️ Organización de los Diccionarios
+Para cumplir con los requerimientos de la cátedra, estructuramos toda la información en un único diccionario centralizado con sub-diccionarios anidados. Esta arquitectura permite segmentar las responsabilidades de los datos de forma lógica:
 
 ```python
 servidor = {
@@ -50,7 +50,7 @@ servidor = {
         "estado": str             # Reporte del estado del sistema
     }
 }
-
+´´´
 💾 Persistencia de Datos y Formato Elegido
 El sistema implementa la persistencia de datos de manera obligatoria para evitar la pérdida de información al cerrar la consola.
 
